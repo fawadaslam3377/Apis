@@ -12,6 +12,10 @@ const MoviesRoutes = require("./routes/MoviesRoute");
 const GenreRoutes = require("./routes/GenreRoute");
 
 const app = express();
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 mongoose.connect(
   "mongodb+srv://Ktechs:azk--azk466@ktechs-yaz3y.mongodb.net/test?retryWrites=true",
   { useNewUrlParser: true }
